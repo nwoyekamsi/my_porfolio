@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Portfolio Website Design</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="hero-header">
+      <div class="wrapper">
+        <header>
+          <div class="logo">
+            <i class="fa-solid fa-n"></i>
+            <div class="logo-text">Nwoye Kamsiyochukwu</div>
+          </div>
+          <nav>
+            <div class="togglebtn">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <ul class="navlinks">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="projects.html">Projects</a></li>
+              <li><a href="resume.html">Resume</a></li>
+              <li><a href="aboutme.html">About Me</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+        </header>
+        <div class="container">
+          <div class="hero-pic">
+            <img src="Screenshot (331).png" alt="profile pic" />
+          </div>
+          <div class="hero-text">
+            <h5>Hi I'm a <span class="input">Network Engineer</span></h5>
+            <h1>Nwoye Kamsiyochukwu</h1>
+            <p>
+              I am a dedicated Network Engineer with hands-on experience in
+              network support and infrastructure management. Skilled in
+              configuring, troubleshooting, and optimizing enterprise networks,
+              I bring a strong foundation in routing, switching, and security
+              protocols. My focus is on delivering reliable connectivity,
+              enhancing performance, and supporting scalable solutions that
+              align with business goals. Passionate about continuous learning, I
+              am committed to advancing my expertise in emerging networking
+              technologies and contributing to innovative IT environments.
+            </p>
+            <div class="btn-group">
+              <a href="resume.html" class="btn active">Download CV</a>
+              <a href="contact.html" class="btn">Contact Me</a>
+            </div>
+            <div class="social">
+              <a href="mailto:knwoye915@gmail.com"
+                ><i class="fa-brands fa-google"></i
+              ></a>
+              <a href="#"><i class="fa-brands fa-twitter"></i></a>
+              <a href="#"><i class="fa-brands fa-instagram"></i></a>
+              <a
+                href="https://www.linkedin.com/in/kamsi-nwoye?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BuV8es6Q9QiShUWHaprFPZg%3D%3D"
+                ><i class="fa-brands fa-linkedin"></i
+              ></a>
+              <a href="https://github.com/nwoyekamsi/my_porfolio.git"
+                ><i class="fa-brands fa-github"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.0/typed.js"></script>
+    <script>
+      var togglebtn = document.querySelector(".togglebtn");
+      var nav = document.querySelector(".navlinks");
+      var links = document.querySelector(".navlinks li");
+
+      togglebtn.addEventListener("click", function () {
+        this.classList.toggle("click");
+        nav.classList.toggle("open");
+      });
+
+      var types = new Typed(".input", {
+        strings: ["Network Engineer", "Freelancer", "Tech Enthusiast"],
+        typeSpeed: 70,
+        backSpeed: 50,
+        loop: true,
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+      const form = document.getElementById("contact-form");
+      const statusText = document.getElementById("form-status");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        statusText.textContent = "Sending message... ⏳";
+
+        emailjs
+          .sendForm(
+            "service_jgcn4oc", // EmailJS service ID
+            "template_7pgcln6", // EmailJS template ID
+            this
+          )
+          .then(
+            () => {
+              statusText.textContent = "Message sent successfully 🚀";
+              statusText.style.color = "green";
+              form.reset();
+            },
+            (error) => {
+              statusText.textContent = "Oops… something went wrong 😬";
+              statusText.style.color = "red";
+              console.error(error);
+            }
+          );
+      });
+    </script>
+
+    <script>
+      (function () {
+        emailjs.init("cXEAMo_MtHHEeYkpF"); // replace with your EmailJS public key
+      })();
+    </script>
+  </body>
+</html>

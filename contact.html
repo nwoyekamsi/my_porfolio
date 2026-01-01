@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Nwoye Kamsiyochukwu</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="hero-header">
+        <div class="wrapper">
+            <header>
+                <div class="logo">
+                    <i class="fa-solid fa-n"></i>
+                    <div class="logo-text">Nwoye Kamsiyochukwu</div>
+                </div>
+                <nav>
+                    <div class="togglebtn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <ul class="navlinks">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="resume.html">Resume</a></li>
+                        <li><a href="aboutme.html">About Me</a></li>
+                        <li><a href="contact.html" class="active">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <!-- Contact Section -->
+            <div class="contact-container">
+                <div class="contact-header">
+                    <h1>Let's Connect</h1>
+                    <p>I'm always open to discussing new opportunities, collaborations, or just chatting about networking and technology</p>
+                </div>
+
+
+                <div class="contact-grid">
+                    <!-- Contact Form Card -->
+                    <div class="contact-card form-card">
+                        <div class="card-title">
+                            <i class="fa-regular fa-envelope"></i>
+                            <h2>Send me a message</h2>
+                        </div>
+                        
+                        <form id="contact-form" class="contact-form">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                            <input type="email" name="email" placeholder="Your Email" required>
+                            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                            <button type="submit" class="send-btn">
+                                <i class="fa-regular fa-paper-plane"></i>
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="right-column">
+                        <div class="contact-card">
+                            <h2>Get in Touch</h2>
+                            <div class="contact-links">
+                                <a href="mailto:knwoye915@gmail.com">
+                                    <i class="fa-regular fa-envelope"></i>
+                                    <span>knwoye915@gmail.com</span>
+                                </a>
+                                <a href="https://linkedin.com" target="_blank">
+                                    <i class="fa-brands fa-linkedin"></i>
+                                    <span>LinkedIn Profile</span>
+                                </a>
+                                <a href="https://github.com" target="_blank">
+                                    <i class="fa-brands fa-github"></i>
+                                    <span>GitHub Profile</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Currently Card -->
+                        <div class="contact-card">
+                            <h2>Currently</h2>
+                            <div class="status-list">
+                                <div class="status-item">
+                                    <span class="status-dot green"></span>
+                                    <span>Seeking network engineering opportunities</span>
+                                </div>
+                                <div class="status-item">
+                                    <span class="status-dot yellow"></span>
+                                    <span>Learning cloud infrastructure & security</span>
+                                </div>
+                                <div class="status-item">
+                                    <span class="status-dot blue"></span>
+                                    <span>Building portfolio projects</span>
+                                </div>
+                                <div class="status-item">
+                                    <span class="status-dot orange"></span>
+                                    <span>Open to mentorship & collaboration</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Collaborate Card -->
+                        <div class="contact-card collaborate-card">
+                            <i class="fa-regular fa-user icon-large"></i>
+                            <h2>Ready to Collaborate?</h2>
+                            <p>Whether it's a network project, internship, or just a conversation about the future of IT infrastructure</p>
+                            <a href="#" class="download-btn">Download Resume</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toggle Menu Script -->
+    <script>
+        var togglebtn = document.querySelector('.togglebtn');
+        var nav = document.querySelector('.navlinks');
+
+        togglebtn.addEventListener('click', function() {
+            this.classList.toggle('click');
+            nav.classList.toggle('open');
+        });
+    </script>
+
+    <!-- EmailJS -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+    (function(){
+        emailjs.init("cXEAMo_MtHHEeYkpF"); // Replace with your EmailJS public key
+    })();
+
+    document.getElementById("contact-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        emailjs.sendForm("service_jgcn4oc", "template_7pgcln6", this)
+            .then(function() {
+                alert("Message sent successfully!");
+                document.getElementById("contact-form").reset();
+            }, function(error) {
+                alert("Failed to send message: " + JSON.stringify(error));
+            });
+    });
+    </script>
+
+    <!-- Logo styling -->
+    <style>
+        .logo-icon {
+            font-weight: bold;
+            font-size: 1.5em;
+            margin-right: 5px;
+        }
+    </style>
+</body>
+</html>
