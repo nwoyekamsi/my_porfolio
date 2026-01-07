@@ -240,6 +240,55 @@ nav .navlinks li a.active::after {
     }
 }
 
+/* Add this to your existing projects.css file */
+
+/* New Details Button Style */
+.btn-details {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, #00d4ff 0%, #007ced 100%);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.25);
+}
+
+.btn-details:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+    background: linear-gradient(135deg, #00e5ff 0%, #0088ff 100%);
+}
+
+/* Update card-actions to handle 3 buttons */
+.card-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    flex-wrap: wrap;
+}
+
+/* Responsive adjustment for 3 buttons */
+@media screen and (max-width: 768px) {
+    .card-actions {
+        flex-direction: column;
+    }
+    
+    .btn-details,
+    .btn-outline,
+    .btn-primary {
+        width: 100%;
+    }
+}
+
 @media screen and (max-width: 480px) {
     .projects-section {
         padding: 40px 0;
